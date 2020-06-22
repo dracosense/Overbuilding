@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Styles/menu.tres" type="StyleBox" id=1]
+[ext_resource path="res://Fonts/font64.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Sprites/GUI/Fantasy/Windows.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/PlayButton.cs" type="Script" id=4]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 2352, 64, 1072, 720 )
+modulate_color = Color( 0.2, 0.2, 0.2, 1 )
+
+[node name="Play" type="MarginContainer"]
+margin_right = 798.0
+margin_bottom = 696.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 758.0
+margin_bottom = 656.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/disabled = ExtResource( 1 )
+custom_styles/normal = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="Image" type="TextureRect" parent="Button"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.7
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button"]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 0.9
+custom_fonts/font = ExtResource( 2 )
+text = "Local game"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]

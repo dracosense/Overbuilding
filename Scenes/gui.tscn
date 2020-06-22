@@ -1,0 +1,750 @@
+[gd_scene load_steps=45 format=2]
+
+[ext_resource path="res://Scripts/GUI.cs" type="Script" id=1]
+[ext_resource path="res://Scenes/gui_game_weapon_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Styles/arrow.tres" type="StyleBox" id=3]
+[ext_resource path="res://Sprites/GUI/Fantasy/Windows.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Textures/stars.tres" type="Texture" id=5]
+[ext_resource path="res://Scenes/gui_page_button.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/gui_play_button.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Fonts/font128.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Fonts/font32.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Sprites/GUI/Icons/play.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/GUI/Icons/network.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/GUI/Icons/chest.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/GUI/Icons/house.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/GUI/Icons/battle.png" type="Texture" id=14]
+[ext_resource path="res://Fonts/font160.tres" type="DynamicFont" id=15]
+[ext_resource path="res://Styles/menu.tres" type="StyleBox" id=16]
+[ext_resource path="res://Sprites/GUI/Icons/weapon/village.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/gui_weapon.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/gui_items_arrow.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Styles/arrow_flipped.tres" type="StyleBox" id=20]
+[ext_resource path="res://Fonts/font96.tres" type="DynamicFont" id=21]
+[ext_resource path="res://Scenes/gui_list_item.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scripts/CursorImage.cs" type="Script" id=23]
+[ext_resource path="res://Fonts/font64.tres" type="DynamicFont" id=24]
+[ext_resource path="res://Sprites/GUI/Fantasy/Button.png" type="Texture" id=25]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 4 )
+region_rect = Rect2( 4352, 3448, 336, 64 )
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
+region_rect = Rect2( 3424, 2672, 480, 152 )
+margin_left = 46.5
+margin_right = 46.5
+margin_top = 45.0
+margin_bottom = 46.5
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 5
+atlas = ExtResource( 4 )
+region = Rect2( 4496, 2656, 160, 144 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 25 )
+region_rect = Rect2( 0, 2224, 176, 192 )
+modulate_color = Color( 0.2, 0.2, 0.2, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 25 )
+region = Rect2( 160, 192, 384, 192 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 4 )
+region_rect = Rect2( 1664, 2944, 640, 736 )
+
+[sub_resource type="OpenSimplexNoise" id=19]
+period = 134.6
+
+[sub_resource type="NoiseTexture" id=18]
+width = 1600
+height = 900
+noise = SubResource( 19 )
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.458824, 0.392157, 0.164706, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.254902, 0.172549, 0.0901961, 1 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 5
+atlas = ExtResource( 4 )
+region = Rect2( 4160, 2640, 144, 160 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 25 )
+region_rect = Rect2( 0, 2016, 176, 192 )
+modulate_color = Color( 0.2, 0.2, 0.2, 1 )
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="GamePanel" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerScore" type="ProgressBar" parent="GamePanel"]
+anchor_top = 0.6
+anchor_bottom = 0.6
+margin_left = -552.0
+margin_top = -52.0
+margin_right = 648.0
+margin_bottom = 48.0
+rect_rotation = -90.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 600, 50 )
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+max_value = 64.0
+step = 1.0
+value = 30.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="GamePanel/PlayerScore"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -10.0
+margin_right = 20.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Star" type="TextureRect" parent="GamePanel/PlayerScore"]
+margin_left = 316.0
+margin_top = -77.9999
+margin_right = 466.0
+margin_bottom = 72.0001
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 75, 75 )
+texture = SubResource( 12 )
+expand = true
+stretch_mode = 6
+
+[node name="Star2" type="TextureRect" parent="GamePanel/PlayerScore"]
+margin_left = 604.0
+margin_top = -77.9999
+margin_right = 754.0
+margin_bottom = 72.0001
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 75, 75 )
+texture = SubResource( 12 )
+expand = true
+stretch_mode = 6
+
+[node name="Star3" type="TextureRect" parent="GamePanel/PlayerScore"]
+margin_left = 876.0
+margin_top = -78.0
+margin_right = 1026.0
+margin_bottom = 72.0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 75, 75 )
+texture = SubResource( 12 )
+expand = true
+stretch_mode = 6
+
+[node name="Exit" type="Button" parent="GamePanel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -128.0
+margin_bottom = 128.0
+grow_horizontal = 0
+focus_mode = 0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeaponPanel" type="Panel" parent="GamePanel"]
+anchor_left = 0.1
+anchor_top = 0.84
+anchor_right = 0.9
+anchor_bottom = 0.99
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon" type="HBoxContainer" parent="GamePanel/WeaponPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="0" parent="GamePanel/WeaponPanel/Weapon" instance=ExtResource( 2 )]
+
+[node name="1" parent="GamePanel/WeaponPanel/Weapon" instance=ExtResource( 2 )]
+margin_left = 256.0
+margin_right = 508.0
+
+[node name="2" parent="GamePanel/WeaponPanel/Weapon" instance=ExtResource( 2 )]
+margin_left = 512.0
+margin_right = 764.0
+
+[node name="3" parent="GamePanel/WeaponPanel/Weapon" instance=ExtResource( 2 )]
+margin_left = 768.0
+margin_right = 1020.0
+
+[node name="4" parent="GamePanel/WeaponPanel/Weapon" instance=ExtResource( 2 )]
+margin_left = 1024.0
+margin_right = 1280.0
+
+[node name="TurnCounter" type="Label" parent="GamePanel"]
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 220.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 24 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0/10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Image" type="TextureRect" parent="GamePanel/TurnCounter"]
+show_behind_parent = true
+anchor_left = -0.1
+anchor_top = -0.1
+anchor_right = 1.1
+anchor_bottom = 1.1
+texture = SubResource( 6 )
+expand = true
+
+[node name="ExitGamePanel" type="Panel" parent="GamePanel"]
+visible = false
+anchor_left = 0.35
+anchor_top = 0.2
+anchor_right = 0.65
+anchor_bottom = 0.8
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GamePanel/ExitGamePanel"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 21 )
+text = "Perfect!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stars" type="TextureProgress" parent="GamePanel/ExitGamePanel"]
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+margin_left = -168.0
+margin_top = 18.0
+margin_right = 408.0
+margin_bottom = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.6, 0.6 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+max_value = 3.0
+step = 1.0
+value = 1.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 5 )
+tint_progress = Color( 1, 0.890196, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="GamePanel/ExitGamePanel"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 24 )
+text = "+128"
+align = 1
+valign = 1
+
+[node name="Image" type="TextureRect" parent="GamePanel/ExitGamePanel"]
+modulate = Color( 0.956863, 0.933333, 0.392157, 0.501961 )
+show_behind_parent = true
+margin_left = -560.0
+margin_top = -180.0
+margin_right = 1040.0
+margin_bottom = 720.0
+texture = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="GamePanel/ExitGamePanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -800.0
+margin_top = -450.0
+margin_right = 800.0
+margin_bottom = 450.0
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
+
+[node name="MenuPanel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="MenuPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResPanel" type="Panel" parent="MenuPanel/Menu"]
+margin_right = 1600.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+custom_styles/panel = SubResource( 8 )
+
+[node name="Res" type="HBoxContainer" parent="MenuPanel/Menu/ResPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftSpace" type="Control" parent="MenuPanel/Menu/ResPanel/Res"]
+margin_right = 1473.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+
+[node name="Money" type="Label" parent="MenuPanel/Menu/ResPanel/Res"]
+visible = false
+margin_left = 1195.0
+margin_right = 1393.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 9 )
+text = "12342"
+align = 2
+valign = 1
+
+[node name="MoneyIcon" type="TextureRect" parent="MenuPanel/Menu/ResPanel/Res"]
+visible = false
+margin_left = 1397.0
+margin_right = 1496.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+texture = SubResource( 11 )
+expand = true
+stretch_mode = 6
+
+[node name="RightSpace" type="Control" parent="MenuPanel/Menu/ResPanel/Res"]
+margin_left = 1477.0
+margin_right = 1600.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="MainPanel" type="Control" parent="MenuPanel/Menu"]
+margin_top = 59.0
+margin_right = 1600.0
+margin_bottom = 755.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Collection" type="Control" parent="MenuPanel/Menu/MainPanel"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InDevelopment" type="Label" parent="MenuPanel/Menu/MainPanel/Collection"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -600.0
+margin_top = -100.0
+margin_right = 600.0
+margin_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 15 )
+text = "In Development"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon" type="HBoxContainer" parent="MenuPanel/Menu/MainPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon" type="MarginContainer" parent="MenuPanel/Menu/MainPanel/Weapon"]
+margin_right = 798.0
+margin_bottom = 696.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="MenuPanel/Menu/MainPanel/Weapon/Weapon"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 778.0
+margin_bottom = 676.0
+custom_styles/panel = ExtResource( 16 )
+
+[node name="Rating" type="TextureRect" parent="MenuPanel/Menu/MainPanel/Weapon/Weapon/Panel"]
+self_modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -159.0
+margin_top = -295.0
+margin_right = 141.0
+margin_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MenuPanel/Menu/MainPanel/Weapon/Weapon/Panel/Rating"]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 147.0
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 24 )
+text = "1205
+"
+align = 1
+valign = 1
+
+[node name="0" parent="MenuPanel/Menu/MainPanel/Weapon/Weapon/Panel" instance=ExtResource( 18 )]
+margin_left = -311.0
+margin_top = -215.0
+margin_right = -151.0
+margin_bottom = -54.9999
+
+[node name="1" parent="MenuPanel/Menu/MainPanel/Weapon/Weapon/Panel" instance=ExtResource( 18 )]
+margin_top = -7.0
+margin_bottom = 153.0
+
+[node name="2" parent="MenuPanel/Menu/MainPanel/Weapon/Weapon/Panel" instance=ExtResource( 18 )]
+margin_left = -95.0
+margin_top = 81.0
+margin_right = 65.0
+margin_bottom = 241.0
+
+[node name="3" parent="MenuPanel/Menu/MainPanel/Weapon/Weapon/Panel" instance=ExtResource( 18 )]
+margin_left = 113.0
+margin_top = -23.0
+margin_right = 273.001
+margin_bottom = 137.0
+
+[node name="4" parent="MenuPanel/Menu/MainPanel/Weapon/Weapon/Panel" instance=ExtResource( 18 )]
+margin_left = 137.0
+margin_top = -231.0
+margin_right = 297.0
+margin_bottom = -70.9996
+
+[node name="Items" type="HBoxContainer" parent="MenuPanel/Menu/MainPanel/Weapon"]
+margin_left = 802.0
+margin_right = 1600.0
+margin_bottom = 696.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ArrowLeft" parent="MenuPanel/Menu/MainPanel/Weapon/Items" instance=ExtResource( 19 )]
+visible = false
+
+[node name="ItemsPlace" type="Control" parent="MenuPanel/Menu/MainPanel/Weapon/Items"]
+margin_right = 798.0
+margin_bottom = 696.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="ItemsPanel" type="Panel" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ItemsPlace"]
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="VBoxContainer" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ItemsPlace/ItemsPanel"]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopRow" type="HBoxContainer" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ItemsPlace/ItemsPanel/ItemList"]
+margin_right = 718.0
+margin_bottom = 185.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="0" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ItemsPlace/ItemsPanel/ItemList/TopRow" instance=ExtResource( 22 )]
+margin_right = 176.0
+margin_bottom = 185.0
+
+[node name="1" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ItemsPlace/ItemsPanel/ItemList/TopRow" instance=ExtResource( 22 )]
+margin_left = 180.0
+margin_right = 356.0
+margin_bottom = 185.0
+
+[node name="2" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ItemsPlace/ItemsPanel/ItemList/TopRow" instance=ExtResource( 22 )]
+margin_left = 360.0
+margin_right = 536.0
+margin_bottom = 185.0
+
+[node name="4" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ItemsPlace/ItemsPanel/ItemList/TopRow" instance=ExtResource( 22 )]
+margin_left = 540.0
+margin_right = 718.0
+margin_bottom = 185.0
+
+[node name="BottomRow" type="HBoxContainer" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ItemsPlace/ItemsPanel/ItemList"]
+margin_top = 189.0
+margin_right = 718.0
+margin_bottom = 375.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="3" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ItemsPlace/ItemsPanel/ItemList/BottomRow" instance=ExtResource( 22 )]
+margin_right = 176.0
+margin_bottom = 186.0
+
+[node name="5" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ItemsPlace/ItemsPanel/ItemList/BottomRow" instance=ExtResource( 22 )]
+margin_left = 180.0
+margin_right = 356.0
+margin_bottom = 186.0
+
+[node name="6" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ItemsPlace/ItemsPanel/ItemList/BottomRow" instance=ExtResource( 22 )]
+margin_left = 360.0
+margin_right = 536.0
+margin_bottom = 186.0
+
+[node name="7" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ItemsPlace/ItemsPanel/ItemList/BottomRow" instance=ExtResource( 22 )]
+margin_left = 540.0
+margin_right = 718.0
+margin_bottom = 186.0
+
+[node name="ArrowRight" parent="MenuPanel/Menu/MainPanel/Weapon/Items" instance=ExtResource( 19 )]
+visible = false
+margin_left = 665.0
+margin_right = 798.0
+
+[node name="TopSpace" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ArrowRight" index="0"]
+margin_right = 133.0
+
+[node name="Arrow" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ArrowRight" index="1"]
+margin_right = 133.0
+custom_styles/hover = ExtResource( 20 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = ExtResource( 20 )
+custom_styles/disabled = ExtResource( 20 )
+custom_styles/normal = ExtResource( 20 )
+
+[node name="BottomSpace" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ArrowRight" index="2"]
+margin_right = 133.0
+
+[node name="Battle" type="HBoxContainer" parent="MenuPanel/Menu/MainPanel"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Local" parent="MenuPanel/Menu/MainPanel/Battle" instance=ExtResource( 7 )]
+
+[node name="Image" parent="MenuPanel/Menu/MainPanel/Battle/Local/Button" index="0"]
+texture = ExtResource( 10 )
+
+[node name="Net" parent="MenuPanel/Menu/MainPanel/Battle" instance=ExtResource( 7 )]
+margin_left = 802.0
+margin_right = 1600.0
+
+[node name="Button" parent="MenuPanel/Menu/MainPanel/Battle/Net" index="0"]
+modulate = Color( 0.5, 0.5, 0.5, 1 )
+disabled = true
+
+[node name="Image" parent="MenuPanel/Menu/MainPanel/Battle/Net/Button" index="0"]
+texture = ExtResource( 11 )
+
+[node name="Label" parent="MenuPanel/Menu/MainPanel/Battle/Net/Button" index="1"]
+text = "Network game"
+
+[node name="InDevelopment" type="Label" parent="MenuPanel/Menu/MainPanel/Battle/Net/Button" index="2"]
+modulate = Color( 0, 0.5, 0, 1 )
+margin_left = 28.0
+margin_top = 56.0
+margin_right = 805.0
+margin_bottom = 200.0
+rect_rotation = 20.0
+custom_fonts/font = ExtResource( 8 )
+text = "In Development"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MenuPanel/Menu"]
+margin_top = 759.0
+margin_right = 1600.0
+margin_bottom = 900.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PagePanel" type="HBoxContainer" parent="MenuPanel/Menu/Control"]
+anchor_left = 0.15
+anchor_right = 0.85
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="0" parent="MenuPanel/Menu/Control/PagePanel" instance=ExtResource( 6 )]
+margin_right = 370.0
+
+[node name="Image" parent="MenuPanel/Menu/Control/PagePanel/0" index="0"]
+texture = ExtResource( 12 )
+
+[node name="1" parent="MenuPanel/Menu/Control/PagePanel" instance=ExtResource( 6 )]
+margin_left = 374.0
+margin_right = 744.0
+
+[node name="Image" parent="MenuPanel/Menu/Control/PagePanel/1" index="0"]
+texture = ExtResource( 13 )
+
+[node name="2" parent="MenuPanel/Menu/Control/PagePanel" instance=ExtResource( 6 )]
+margin_left = 748.0
+margin_right = 1120.0
+
+[node name="Image" parent="MenuPanel/Menu/Control/PagePanel/2" index="0"]
+texture = ExtResource( 14 )
+
+[node name="CursorImage" type="TextureRect" parent="."]
+modulate = Color( 0.5, 0.5, 0.5, 1 )
+margin_right = 100.0
+margin_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 50, 50 )
+mouse_filter = 2
+expand = true
+stretch_mode = 6
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="GamePanel/Exit" to="." method="_on_exit_button_down"]
+[connection signal="button_down" from="GamePanel/ExitGamePanel/Exit" to="." method="_on_exit_button_down"]
+
+[editable path="MenuPanel/Menu/MainPanel/Weapon/Items/ArrowLeft"]
+
+[editable path="MenuPanel/Menu/MainPanel/Weapon/Items/ArrowRight"]
+
+[editable path="MenuPanel/Menu/MainPanel/Battle/Local"]
+
+[editable path="MenuPanel/Menu/MainPanel/Battle/Net"]
+
+[editable path="MenuPanel/Menu/Control/PagePanel/0"]
+
+[editable path="MenuPanel/Menu/Control/PagePanel/1"]
+
+[editable path="MenuPanel/Menu/Control/PagePanel/2"]

@@ -1,0 +1,5 @@
+E:\projects\Godot\HCGame\.mono\temp\bin\Debug\HCGame.dll
+E:\projects\Godot\HCGame\.mono\temp\bin\Debug\HCGame.pdb
+E:\projects\Godot\HCGame\.mono\temp\obj\Debug\HCGame.csprojAssemblyReference.cache
+E:\projects\Godot\HCGame\.mono\temp\obj\Debug\HCGame.dll
+E:\projects\Godot\HCGame\.mono\temp\obj\Debug\HCGame.pdb
