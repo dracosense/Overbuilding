@@ -428,32 +428,44 @@ public class GameMap : TileMap
         switch(gamePhase)
         {   
             case 0:
-                if (pAction != -1 && eAction != -1)
+                if (pAction != -1)
                 {
+                    BuildWeapon(pAction, pAPos, true);
+                    timeFromBuild = 0.0f;
                     gamePhase = 1;
                 }
-                somethingBuilded = false; 
                 break;
             case 1:
-                CityStep();
-                gamePhase = 2;
-                timeFromBuild = 0.0f;
-                break;
-            case 2:
                 if (bQueue.Count <= 0)
                 {
-                    gamePhase = 3;
+                    gamePhase = 2;
                     break;
                 }
                 BuildFromQueue();
                 break;
+            case 2:
+                if (eAction != -1)
+                {
+                    BuildWeapon(eAction, eAPos, false);
+                    timeFromBuild = 0.0f;
+                    gamePhase = 3;
+                }
+                break;
             case 3:
-                BuildWeapon(eAction, eAPos, false);
-                BuildWeapon(pAction, pAPos, true);
-                gamePhase = 4;
-                timeFromBuild = 0.0f;
+                if (bQueue.Count <= 0)
+                {
+                    gamePhase = 4;
+                    break;
+                }
+                BuildFromQueue();
                 break;
             case 4:
+                somethingBuilded = false;
+                CityStep();
+                gamePhase = 5;
+                timeFromBuild = 0.0f;
+                break;
+            case 5:
                 if (bQueue.Count <= 0)
                 {
                     pAction = -1;

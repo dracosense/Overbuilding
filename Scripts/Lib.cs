@@ -134,6 +134,7 @@ public class Lib
     public const int START_ZONE_DIST = 3;
     public const int STARS_NUM = 3;
     public const int VEHICLE_SCORE_C = 4;
+    public const int HELP_IMAGES_N = 5;
     public const uint D_NUM = 4;
     public const uint P_HOUSE_TILE = 8;
     public const uint E_HOUSE_TILE = 9; 
@@ -153,6 +154,7 @@ public class Lib
     public static Texture[] wTypeT = {LoadT("GUI/Icons/weapon/house"), LoadT("GUI/Icons/weapon/tank"), 
     LoadT("GUI/Icons/weapon/truck"), LoadT("GUI/Icons/weapon/drone"), LoadT("GUI/Icons/weapon/bulldozer"), 
     LoadT("GUI/Icons/weapon/wall"), LoadT("GUI/Icons/weapon/crane"), LoadT("GUI/Icons/weapon/vehicle")};
+    public static Texture[] helpImages = {LoadT("Help/0"), LoadT("Help/1"), LoadT("Help/2"), LoadT("Help/3"), LoadT("Help/4")};
     public static PackedScene gamePS = LoadPS("game");
 
     public static PackedScene LoadPS(string psName)

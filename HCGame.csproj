@@ -58,6 +58,8 @@
     <Compile Include="Scripts\GameMap.cs" />
     <Compile Include="Scripts\GameWeapon.cs" />
     <Compile Include="Scripts\GUI.cs" />
+    <Compile Include="Scripts\Help.cs" />
+    <Compile Include="Scripts\HelpPanel.cs" />
     <Compile Include="Scripts\Lib.cs" />
     <Compile Include="Scripts\PageButton.cs" />
     <Compile Include="Scripts\PlayButton.cs" />

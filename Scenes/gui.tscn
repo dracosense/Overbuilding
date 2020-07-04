@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Scripts/GUI.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/gui_game_weapon_button.tscn" type="PackedScene" id=2]
@@ -25,6 +25,10 @@
 [ext_resource path="res://Scripts/CursorImage.cs" type="Script" id=23]
 [ext_resource path="res://Fonts/font64.tres" type="DynamicFont" id=24]
 [ext_resource path="res://Sprites/GUI/Fantasy/Button.png" type="Texture" id=25]
+[ext_resource path="res://Styles/help.tres" type="StyleBox" id=26]
+[ext_resource path="res://Scripts/Help.cs" type="Script" id=27]
+[ext_resource path="res://Scripts/HelpPanel.cs" type="Script" id=28]
+[ext_resource path="res://Sprites/Help/0.png" type="Texture" id=29]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
@@ -42,34 +46,38 @@ margin_right = 46.5
 margin_top = 45.0
 margin_bottom = 46.5
 
-[sub_resource type="AtlasTexture" id=12]
-flags = 5
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 4496, 2656, 160, 144 )
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 25 )
 region_rect = Rect2( 0, 2224, 176, 192 )
 modulate_color = Color( 0.2, 0.2, 0.2, 1 )
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxEmpty" id=6]
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 25 )
 region = Rect2( 160, 192, 384, 192 )
 
-[sub_resource type="StyleBoxTexture" id=10]
+[sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 4 )
 region_rect = Rect2( 1664, 2944, 640, 736 )
 
-[sub_resource type="OpenSimplexNoise" id=19]
+[sub_resource type="OpenSimplexNoise" id=9]
 period = 134.6
 
-[sub_resource type="NoiseTexture" id=18]
+[sub_resource type="NoiseTexture" id=10]
 width = 1600
 height = 900
-noise = SubResource( 19 )
+noise = SubResource( 9 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
 
 [sub_resource type="StyleBoxEmpty" id=13]
 
@@ -77,25 +85,36 @@ noise = SubResource( 19 )
 
 [sub_resource type="StyleBoxEmpty" id=15]
 
-[sub_resource type="StyleBoxEmpty" id=16]
-
-[sub_resource type="StyleBoxEmpty" id=17]
-
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=16]
 bg_color = Color( 0.458824, 0.392157, 0.164706, 1 )
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 0.254902, 0.172549, 0.0901961, 1 )
 
-[sub_resource type="AtlasTexture" id=11]
-flags = 5
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 4160, 2640, 144, 160 )
 
-[sub_resource type="StyleBoxTexture" id=9]
+[sub_resource type="StyleBoxTexture" id=19]
 texture = ExtResource( 25 )
 region_rect = Rect2( 0, 2016, 176, 192 )
 modulate_color = Color( 0.2, 0.2, 0.2, 1 )
+
+[sub_resource type="StyleBoxTexture" id=20]
+texture = ExtResource( 25 )
+region_rect = Rect2( 0, 3424, 176, 176 )
+modulate_color = Color( 0.2, 0.2, 0.2, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=21]
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="StyleBoxEmpty" id=25]
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -149,7 +168,7 @@ margin_right = 466.0
 margin_bottom = 72.0001
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 75, 75 )
-texture = SubResource( 12 )
+texture = SubResource( 4 )
 expand = true
 stretch_mode = 6
 
@@ -160,7 +179,7 @@ margin_right = 754.0
 margin_bottom = 72.0001
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 75, 75 )
-texture = SubResource( 12 )
+texture = SubResource( 4 )
 expand = true
 stretch_mode = 6
 
@@ -171,7 +190,7 @@ margin_right = 1026.0
 margin_bottom = 72.0
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 75, 75 )
-texture = SubResource( 12 )
+texture = SubResource( 4 )
 expand = true
 stretch_mode = 6
 
@@ -183,7 +202,7 @@ margin_bottom = 128.0
 grow_horizontal = 0
 focus_mode = 0
 custom_styles/hover = ExtResource( 3 )
-custom_styles/pressed = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
 custom_styles/focus = ExtResource( 3 )
 custom_styles/disabled = ExtResource( 3 )
 custom_styles/normal = ExtResource( 3 )
@@ -196,7 +215,7 @@ anchor_left = 0.1
 anchor_top = 0.84
 anchor_right = 0.9
 anchor_bottom = 0.99
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -248,7 +267,7 @@ anchor_left = -0.1
 anchor_top = -0.1
 anchor_right = 1.1
 anchor_bottom = 1.1
-texture = SubResource( 6 )
+texture = SubResource( 7 )
 expand = true
 
 [node name="ExitGamePanel" type="Panel" parent="GamePanel"]
@@ -257,7 +276,7 @@ anchor_left = 0.35
 anchor_top = 0.2
 anchor_right = 0.65
 anchor_bottom = 0.8
-custom_styles/panel = SubResource( 10 )
+custom_styles/panel = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -293,7 +312,6 @@ rect_scale = Vector2( 0.6, 0.6 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 max_value = 3.0
-step = 1.0
 value = 1.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 5 )
@@ -322,7 +340,7 @@ margin_left = -560.0
 margin_top = -180.0
 margin_right = 1040.0
 margin_bottom = 720.0
-texture = SubResource( 18 )
+texture = SubResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -336,16 +354,16 @@ margin_left = -800.0
 margin_top = -450.0
 margin_right = 800.0
 margin_bottom = 450.0
-custom_styles/hover = SubResource( 13 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/focus = SubResource( 15 )
-custom_styles/disabled = SubResource( 16 )
-custom_styles/normal = SubResource( 17 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/disabled = SubResource( 14 )
+custom_styles/normal = SubResource( 15 )
 
 [node name="MenuPanel" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -363,7 +381,7 @@ margin_bottom = 55.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 17 )
 
 [node name="Res" type="HBoxContainer" parent="MenuPanel/Menu/ResPanel"]
 anchor_right = 1.0
@@ -402,7 +420,7 @@ margin_bottom = 55.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-texture = SubResource( 11 )
+texture = SubResource( 18 )
 expand = true
 stretch_mode = 6
 
@@ -494,6 +512,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="MenuPanel/Menu/MainPanel/Weapon/Weapon/Panel/Rating"]
+visible = false
 self_modulate = Color( 0, 0, 0, 1 )
 anchor_top = 1.0
 anchor_right = 1.0
@@ -505,6 +524,9 @@ text = "1205
 "
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="0" parent="MenuPanel/Menu/MainPanel/Weapon/Weapon/Panel" instance=ExtResource( 18 )]
 margin_left = -311.0
@@ -633,7 +655,7 @@ margin_right = 133.0
 [node name="Arrow" parent="MenuPanel/Menu/MainPanel/Weapon/Items/ArrowRight" index="1"]
 margin_right = 133.0
 custom_styles/hover = ExtResource( 20 )
-custom_styles/pressed = SubResource( 9 )
+custom_styles/pressed = SubResource( 19 )
 custom_styles/focus = ExtResource( 20 )
 custom_styles/disabled = ExtResource( 20 )
 custom_styles/normal = ExtResource( 20 )
@@ -709,6 +731,10 @@ margin_left = 374.0
 margin_right = 744.0
 
 [node name="Image" parent="MenuPanel/Menu/Control/PagePanel/1" index="0"]
+anchor_left = 0.00540541
+anchor_top = 0.177305
+anchor_right = 1.00541
+anchor_bottom = 0.877305
 texture = ExtResource( 13 )
 
 [node name="2" parent="MenuPanel/Menu/Control/PagePanel" instance=ExtResource( 6 )]
@@ -717,6 +743,47 @@ margin_right = 1120.0
 
 [node name="Image" parent="MenuPanel/Menu/Control/PagePanel/2" index="0"]
 texture = ExtResource( 14 )
+
+[node name="Help" type="Button" parent="MenuPanel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -150.0
+margin_top = -150.0
+margin_right = -30.0
+margin_bottom = -30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 26 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/focus = ExtResource( 26 )
+custom_styles/disabled = ExtResource( 26 )
+custom_styles/normal = ExtResource( 26 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HelpPanel" type="TextureRect" parent="MenuPanel"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 29 )
+expand = true
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MenuPanel/HelpPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/hover = SubResource( 21 )
+custom_styles/pressed = SubResource( 22 )
+custom_styles/focus = SubResource( 23 )
+custom_styles/disabled = SubResource( 24 )
+custom_styles/normal = SubResource( 25 )
 
 [node name="CursorImage" type="TextureRect" parent="."]
 modulate = Color( 0.5, 0.5, 0.5, 1 )
@@ -734,6 +801,7 @@ __meta__ = {
 }
 [connection signal="button_down" from="GamePanel/Exit" to="." method="_on_exit_button_down"]
 [connection signal="button_down" from="GamePanel/ExitGamePanel/Exit" to="." method="_on_exit_button_down"]
+[connection signal="button_up" from="MenuPanel/HelpPanel/Button" to="MenuPanel/HelpPanel" method="_on_button_up"]
 
 [editable path="MenuPanel/Menu/MainPanel/Weapon/Items/ArrowLeft"]
 
